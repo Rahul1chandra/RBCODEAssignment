@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login view</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+emailid: <input type="text" placeholder="username" id="userid">
+password: <input type="password", placeholder="password" id="password">
+<input type="button" value="login" onclick="calllogin()">
+</div>
+
+<script>
+    function calllogin(){
+    $.ajax({
+                url: "login",
+                type: "POST",
+                data: {
+                        "email_id": $('#userid').val(),
+                        "password": $('#password').val(),
+                        "csrfmiddlewaretoken": '{{ csrf_token }}',
+                        "call": "login"
+				},
+                success: function(data) {
+
+                    console.log(data);
+                    debugger;
+                      window.location.href = "dashboard";
+                },
+                error: function() {
+                    console.log("Error while processing");
+                },
+            })
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+<h1>:: quiz list ::  logged in user:    Score:  </h1>
+{% for eachquiz in quiz_model %}
+        <p> {{ eachquiz.quiz_name }} start quiz:: <input type="button" value="start" onclick="startquiz()">   Add question: <input type="button" value="Add" onclick="addquestion()"> </p>
+{% endfor %}
+</body>
+</html>
